@@ -1,1 +1,1 @@
-# ticket-manager-api
+# Student manager API
