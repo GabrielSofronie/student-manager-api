@@ -1,7 +1,9 @@
+using Common.Application.Handlers;
 using Institutions.Domain.Institutions;
 using Institutions.Domain.Students;
 using Institutions.Infrastructure.Domain.Institutions;
 using Institutions.Infrastructure.Domain.Students;
+using Institutions.Infrastructure.Processing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +26,11 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
+
+    public static IServiceCollection AddLoggingCommandHandler(this IServiceCollection services)
+        => services
+            .AddSingleton(typeof(LoggingCommandHandler<,>), typeof(ICommandHandler<,>))
+            ;
 
     private static IServiceCollection AddRepositories(this IServiceCollection services)
         => services
