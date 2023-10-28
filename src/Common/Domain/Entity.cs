@@ -1,5 +1,7 @@
-﻿namespace Domain;
+﻿
+namespace Common.Domain;
 
-public abstract class Entity
+public abstract class Entity : IIdentity
 {
+    public Guid Id { get; private set; }
 }

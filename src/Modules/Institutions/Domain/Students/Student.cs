@@ -1,4 +1,4 @@
-using Domain;
+using Common.Domain;
 using Institutions.Domain.Institutions;
 
 namespace Institutions.Domain.Students;

@@ -1,8 +1,8 @@
-namespace Domain;
+namespace Common.Domain;
 
 public abstract class Identity : IIdentity
 {
-    public Guid Id { get; private set; }
+    public Guid Id { get; init; }
 
     public Identity() => Id = Guid.NewGuid();
 

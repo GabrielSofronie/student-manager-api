@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Domain;
+namespace Common.Domain;
 
 public static class GeneratorHelper
 {

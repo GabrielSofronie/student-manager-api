@@ -1,3 +1,3 @@
-namespace Domain;
+namespace Common.Domain;
 
 public interface IAggregateRoot { }

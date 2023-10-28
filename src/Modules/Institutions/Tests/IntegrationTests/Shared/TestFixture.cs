@@ -13,7 +13,7 @@ public class TestFixture : IDisposable
         var cfg = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string>
             {
-                {"ConnectionStrings:TicketManagerDb", "server=localhost;port=3306;database=test_db;uid=root;password=access"}
+                {"ConnectionStrings:TicketManagerDb", "server=localhost;port=3306;database=test;uid=root;password=access"}
             })
             .Build();
 
