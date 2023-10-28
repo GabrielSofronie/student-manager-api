@@ -4,7 +4,7 @@ using Students.Domain.Students;
 
 namespace Students.Infrastructure.Data;
 
-public sealed class StudentsDbContext : DbContext, IApplicationDbContext
+public sealed class StudentsDbContext : DbContext, IStudentsDbContext
 {
     public DbSet<Student> Students { get; set; }
     public DbSet<Ticket> Tickets { get; set; }

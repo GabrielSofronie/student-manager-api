@@ -7,9 +7,9 @@ namespace Students.Application.Students.GetStudentInfo;
 
 public sealed class GetStudentInfoQueryHandler : IQueryHandler<GetStudentInfoQuery, StudentInfoDto>
 {
-    private readonly IApplicationDbContext _ctx;
+    private readonly IStudentsDbContext _ctx;
 
-    public GetStudentInfoQueryHandler(IApplicationDbContext ctx) => _ctx = ctx;
+    public GetStudentInfoQueryHandler(IStudentsDbContext ctx) => _ctx = ctx;
 
     public async Task<StudentInfoDto> Handle(GetStudentInfoQuery request, CancellationToken cancellationToken)
     {

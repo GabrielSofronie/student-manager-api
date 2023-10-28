@@ -3,7 +3,7 @@ using Students.Domain.Students;
 
 namespace Students.Application.Data;
 
-public interface IApplicationDbContext
+public interface IStudentsDbContext
 {
     DbSet<Student> Students { get; }
     DbSet<Ticket> Tickets { get; }
