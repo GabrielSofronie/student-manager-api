@@ -8,7 +8,7 @@ using UserAccess.Domain.User;
 
 namespace UserAccess.Infrastructure.Authenticate;
 
-public class CustomAuthentication<TUser> : IAuthentication<TUser>
+public class CustomAuthentication<TUser> : IAuthentication<TUser> where TUser : User
 {
     private readonly IUserRepository<TUser> _repository;
 
