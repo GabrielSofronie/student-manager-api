@@ -7,9 +7,13 @@ public sealed class Student : Entity, IAggregateRoot
 {
     public StudentId Id { get; init; } = new StudentId(Guid.Empty);
 
-    private readonly InstitutionId _institutionId;
+    public InstitutionId InstitutionId { get; init; }
 
-    private readonly string _name;
+    public string Name { get; init; }
+
+    public RegistrationNumber RegistrationNumber { get; init; }
+
+    public byte DiscountType { get; init; }
 
     private string _email;
 
@@ -17,27 +21,23 @@ public sealed class Student : Entity, IAggregateRoot
 
     private readonly string _faculty;
 
-    private readonly RegistrationNumber _registrationNumber;
-
     private readonly DateTime _createdAt;
 
     private DateTime _login;
 
     private readonly string _code;
 
-    private readonly byte _discountType;
-
     private Student() { }
 
     private Student(StudentId id, InstitutionId institutionId, string name, string faculty, RegistrationNumber registrationNumber, string code, byte discountType)
     {
         Id = id;
-        _institutionId = institutionId;
-        _name = name;
+        InstitutionId = institutionId;
+        Name = name;
+        RegistrationNumber = registrationNumber;
+        DiscountType = discountType;
         _faculty = faculty;
-        _registrationNumber = registrationNumber;
         _code = code;
-        _discountType = discountType;
         _createdAt = DateTime.UtcNow;
     }
 

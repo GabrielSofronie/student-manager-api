@@ -1,8 +1,12 @@
+using Institutions.Domain.Students;
+
 namespace Institutions.Domain.Institutions;
 
 public sealed class Institution
 {
     public InstitutionId Id { get; init; } = new InstitutionId(Guid.Empty);
+
+    public ICollection<Student> Students { get; } = new List<Student>();
 
     private readonly string _email = string.Empty;
 
@@ -56,4 +60,6 @@ public sealed class Institution
     public bool IsDefault() => Id.Id.Equals(Guid.Empty);
 
     public string Code() => _code;
+
+    public string Name() => _name;
 }
