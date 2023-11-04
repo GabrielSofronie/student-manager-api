@@ -22,9 +22,15 @@ public sealed class StudentsDbContext : DbContext, IStudentsDbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Student>(entity =>
+        {
+            entity.Property(p => p.RegistrationNumber).HasColumnName("registrationNumber");
+            entity.Property(p => p.CreatedAt).HasColumnName("createdAt");
+        });
+
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(p => p.OwnerId);
             entity.Property(p => p.OwnerId).HasColumnName("ownerId");
             entity.Property(p => p.DiscountType).HasColumnName("discountType");
             entity.Property(p => p.CreatedAt).HasColumnName("createdAt");

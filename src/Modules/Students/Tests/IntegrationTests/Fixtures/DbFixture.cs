@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Students.Infrastructure.Data;
 
@@ -19,5 +20,5 @@ internal class DbFixture
         _connectionString = configuration.GetConnectionString("Sql") ?? string.Empty;
     }
 
-    public StudentsDbContext CreateContext() => new StudentsDbContext(_connectionString);
+    public StudentsDbContext CreateContext() => new(_connectionString);
 }
