@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Application.Exceptions;
 using Students.Application.Students.GetStudentInfo;
 using Students.Domain.Students;
 using Students.Infrastructure.Data;
@@ -25,6 +26,17 @@ public class GetStudentInfoQueryHandlerTests
 
         Assert.Equal(_scenario.StudentId, info.Id);
         Assert.NotEmpty(info.StudentName);
+
+        await _scenario.Reset();
+    }
+
+    [Fact]
+    public async Task Handle_ShouldThrow_WhenStudentIsNotFound()
+    {
+        await _scenario.SetupForSuccess();
+        var request = new GetStudentInfoQuery(Guid.NewGuid());
+
+        await Assert.ThrowsAsync<NotFoundException>(() => _sut.Handle(request, CancellationToken.None));
 
         await _scenario.Reset();
     }

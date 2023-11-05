@@ -25,7 +25,7 @@ public sealed class GetInstitutionInfoQueryHandler : IQueryHandler<GetInstitutio
         }
 
         var studentsInfo = institution.Students
-            .Select(s => new StudentInfoDto(s.Id.Id, s.Name, s.RegistrationNumber.ToString(), s.DiscountType));
+            .Select(s => new StudentInfoDto(s.Id.Id, s.Name, s.RegistrationNumber.ToString(), 10));
 
         return new InstitutionInfoDto(institution.Id.Id, institution.Code(), studentsInfo);
     }

@@ -13,8 +13,6 @@ public sealed class Student : Entity, IAggregateRoot
 
     public RegistrationNumber RegistrationNumber { get; init; }
 
-    public byte DiscountType { get; init; }
-
     private string _email;
 
     private string _password;
@@ -27,21 +25,22 @@ public sealed class Student : Entity, IAggregateRoot
 
     private readonly string _code;
 
+    private readonly string _registrationNumber;
+
     private Student() { }
 
-    private Student(StudentId id, InstitutionId institutionId, string name, string faculty, RegistrationNumber registrationNumber, string code, byte discountType)
+    private Student(StudentId id, InstitutionId institutionId, string name, string faculty, RegistrationNumber registrationNumber)
     {
         Id = id;
         InstitutionId = institutionId;
         Name = name;
         RegistrationNumber = registrationNumber;
-        DiscountType = discountType;
         _faculty = faculty;
-        _code = code;
+        // _registrationNumber =
         _createdAt = DateTime.UtcNow;
     }
 
-    public static Student Create(InstitutionId institutionId, string name, string faculty, string code, string number, byte discountType)
+    public static Student Create(InstitutionId institutionId, string name, string faculty, string code, string number)
     {
         var regNo = RegistrationNumber.Create(code, number);
 
@@ -54,9 +53,7 @@ public sealed class Student : Entity, IAggregateRoot
             institutionId,
             name,
             faculty,
-            regNo,
-            ticketCode,
-            discountType
+            regNo
         );
     }
 

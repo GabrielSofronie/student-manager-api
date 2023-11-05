@@ -26,7 +26,7 @@ public sealed class ImportStudentsBatchCommandHandler : ICommandHandler<ImportSt
 
         var students = request
             .Students
-            .Select(s => Student.Create(institutionId, s.Name, s.Faculty, institution.Code(), s.RegistrationNumber, s.DiscountType));
+            .Select(s => Student.Create(institutionId, s.Name, s.Faculty, institution.Code(), s.RegistrationNumber));
 
         var insertTasks = students.Select(async s => await InsertStudent(s));
 

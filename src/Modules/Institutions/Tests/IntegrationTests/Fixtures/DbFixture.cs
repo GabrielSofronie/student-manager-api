@@ -1,7 +1,7 @@
+using Institutions.Infrastructure;
 using Microsoft.Extensions.Configuration;
-using Students.Infrastructure.Data;
 
-namespace Students.Tests.IntegrationTests.Fixtures;
+namespace Institutions.Tests.IntegrationTests.Fixtures;
 
 // https://learn.microsoft.com/en-us/ef/core/testing/testing-with-the-database
 
@@ -19,5 +19,5 @@ internal class DbFixture
         _connectionString = configuration.GetConnectionString("Sql") ?? string.Empty;
     }
 
-    public StudentsDbContext CreateContext() => new(_connectionString);
+    public InstitutionsContext CreateContext() => new(_connectionString);
 }
